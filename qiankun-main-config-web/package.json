@@ -1,0 +1,29 @@
+{
+  "name": "qiankun-main-config-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:prod": "vite --mode production",
+    "build:dev": "vite build --mode development",
+    "build": "vite build --mode production",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "core-js": "^3.37.1",
+    "element-plus": "^2.3.8",
+    "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^3.2.1",
+    "qiankun": "^2.10.16",
+    "vue": "^3.0.4",
+    "vue-router": "^4.2.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "sass": "^1.77.5",
+    "vite": "^5.2.0",
+    "vue-template-compiler": "^2.7.16"
+  }
+}

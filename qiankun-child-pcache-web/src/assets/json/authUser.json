@@ -1,0 +1,24 @@
+{
+    "success": true,
+    "code": "000000",
+    "message": "成功",
+    "host": "192.168.75.1",
+    "showType": 0,
+    "traceId": "658a8afdd0e91a19f46bebee",
+    "data": {
+        "userId": "1595625687086100482",
+        "userName": "root",
+        "password": "$2a$10$Mhcy3zXi0vr5Hp1KxLEYFOIUMHzCQKYZXNAVFYqcM9aYlR0kvcHBO",
+        "nickname": "yangmiaomiao",
+        "status": "1",
+        "avatar": null,
+        "phone": "18065220862",
+        "email": null,
+        "deptId": null,
+        "tenantId": null,
+        "tenantName": null,
+        "gender": "1",
+        "type": "0",
+        "roleNames": null
+    }
+}

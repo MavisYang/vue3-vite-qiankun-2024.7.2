@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "vue.vscode-typescript-vue-plugin",
+        "koroFileHeader.vscode-fileheader",
+        "prettier.prettier-vscode",
+        "esbenp.prettier-vscode"
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "editor.formatOnSave": true, //#每次保存的时候自动格式化
+    "editor.formatOnPaste": true, // 粘贴后的内容, 是否自动格式化
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "fileheader.configObj": {
+        "autoAdd": true,
+        "autoAlready": true,
+        "prohibitAutoAdd": ["json", "md"],
+        "createFileTime": true,
+        "dateFormat": "YYYY-MM-DD HH:mm:ss",
+        "moveCursor": true
+    },
+    "fileheader.cursorMode": {
+        "Description": "",
+        "param": "",
+        "return": ""
+    },
+    "fileheader.customMade": {
+        "Author": "",
+        "Date": "Do not edit",
+        "LastEditors": "",
+        "LastEditTime": "Do not edit",
+        "Description": ""
+    },
+    "prettier.tabWidth": 4,
+    "prettier.arrowParens": "avoid",
+    "prettier.bracketSpacing": false,
+    "prettier.semi": false,
+    "prettier.singleQuote": true,
+    "prettier.useTabs": true,
+    "prettier.printWidth": 120,
+    "prettier.htmlWhitespaceSensitivity": "ignore",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features" //可以选择其它的样式
+        //"editor.formatOnSave": false//如果不希望特定语言被自动格式化，可以禁用保存时格式化。
+    },
+    "search.exclude": {
+        // VScode进行文件搜索时，不搜索这些区域。
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.gitignore": true,
+        "**/.idea": true,
+        "**/.svn": true,
+        "**/.vscode": true,
+        "**/build": true,
+        "**/dist": true,
+        "**/tmp": true,
+        "**/yarn.lock": true
+    }
+}

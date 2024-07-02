@@ -1,0 +1,8 @@
+{
+    "code": "00000",
+    "message": "success",
+    "data": {
+        "namespaceList": ["paramCenter", "paas_gateway"],
+        "clientUrlNum": 5
+    }
+}

@@ -1,0 +1,87 @@
+{
+    "success": true,
+    "code": "000000",
+    "message": "成功",
+    "host": "192.168.75.1",
+    "showType": 0,
+    "traceId": "658a8afdd0e91a19f46bebee",
+    "data": [
+        {
+            "path": "/home",
+            "name": "home",
+            "component": "/home/index",
+            "meta": {
+                "icon": "Grid",
+                "title": "概览",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true,
+                "isTab": true
+            }
+        },
+        {
+            "path": "/dataSourceManage",
+            "name": "dataSourceManage",
+            "component": "/dataSourceManage/index",
+            "meta": {
+                "icon": "Tickets",
+                "title": "数据源管理",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true,
+                "isTab": true
+            }
+        },
+        {
+            "path": "/dataTransfer/transferTemplate",
+            "name": "dataTransfer",
+            "component": "/dataTransfer/transferTemplate/index",
+            "meta": {
+                "icon": "MostlyCloudy",
+                "title": "数据转存",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true,
+                "isTab": true
+            },
+            "children": [
+                {
+                    "path": "/dataTransfer/transferTemplate",
+                    "name": "transferTemplate",
+                    "component": "/dataTransfer/transferTemplate/index",
+                    "meta": {
+                        "icon": "",
+                        "title": "转存模板管理",
+                        "isLink": "",
+                        "isHide": false,
+                        "isFull": false,
+                        "isAffix": false,
+                        "isKeepAlive": true,
+                        "isTab": true
+                    }
+                },
+                {
+                    "path": "/dataTransfer/taskInstance",
+                    "name": "taskInstance",
+                    "component": "/dataTransfer/taskInstance/index",
+                    "meta": {
+                        "icon": "",
+                        "title": "任务实例管理",
+                        "isLink": "",
+                        "isHide": false,
+                        "isFull": false,
+                        "isAffix": false,
+                        "isKeepAlive": true,
+                        "isTab": true
+                    }
+                }
+            ]
+        }
+    ]
+}

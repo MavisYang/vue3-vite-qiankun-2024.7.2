@@ -1,0 +1,165 @@
+/* custom content-box */
+.content-box {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    border-radius: 4px;
+}
+/* custom card */
+.card {
+    box-sizing: border-box;
+    padding: 20px;
+    overflow-x: hidden;
+    background-color: var(--el-bg-color);
+    border-radius: 4px;
+    box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+}
+.bg-card {
+    background-color: var(--el-bg-color);
+    height: 100%;
+}
+.bg-card-page {
+    background-color: var(--el-bg-color-page);
+    height: 100%;
+}
+/* flex */
+.flx {
+    display: flex;
+}
+.flx-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flx-align-center {
+    display: flex;
+    align-items: center;
+}
+.flx-justify-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.flx-align-center {
+    display: flex;
+    align-items: center;
+}
+/* 外边距、内边距全局样式 .mt-20 .pt-20*/
+@for $i from 0 through 100 {
+    .mt-#{$i} {
+        margin-top: #{$i}px !important;
+    }
+    .mr-#{$i} {
+        margin-right: #{$i}px !important;
+    }
+    .mb-#{$i} {
+        margin-bottom: #{$i}px !important;
+    }
+    .ml-#{$i} {
+        margin-left: #{$i}px !important;
+    }
+    .pt-#{$i} {
+        padding-top: #{$i}px !important;
+    }
+    .pr-#{$i} {
+        padding-right: #{$i}px !important;
+    }
+    .pb-#{$i} {
+        padding-bottom: #{$i}px !important;
+    }
+    .pl-#{$i} {
+        padding-left: #{$i}px !important;
+    }
+}
+
+/* clearfix */
+.clearfix::after {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+    content: '';
+}
+
+/* 文字单行省略号 */
+.sle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 文字多行省略号 */
+.mle {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/* 文字多了自动換行 */
+.break-word {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+/* fade-transform */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+    transition: all 0.2s;
+}
+.fade-transform-enter-from {
+    opacity: 0;
+    transition: all 0.2s;
+    transform: translateX(-30px);
+}
+.fade-transform-leave-to {
+    opacity: 0;
+    transition: all 0.2s;
+    transform: translateX(30px);
+}
+
+/* breadcrumb-transform */
+.breadcrumb-enter-active {
+    transition: all 0.2s;
+}
+.breadcrumb-enter-from,
+.breadcrumb-leave-active {
+    opacity: 0;
+    transform: translateX(10px);
+}
+
+/*操作部分的样式展示*/
+.primary-text {
+    color: var(--el-color-primary);
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+        text-decoration: underline;
+        color: var(--el-color-primary-light-3);
+    }
+}
+.danger-text {
+    color: var(--el-color-danger);
+    cursor: pointer;
+    &:hover,
+    &:active {
+        text-decoration: underline;
+        color: var(--el-color-danger-light-3);
+    }
+}
+
+.operation {
+    &.edit {
+        @extend .primary-text;
+    }
+
+    &.delete {
+        @extend .danger-text;
+    }
+    &:last-child {
+        margin-left: 8px;
+    }
+}
