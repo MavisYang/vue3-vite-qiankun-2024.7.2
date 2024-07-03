@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao 
  * @Date: 2024-06-15 14:32:16
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-07-02 17:23:00
+ * @LastEditTime: 2024-07-03 14:48:21
  * @FilePath: /qiankun-main-config-web/src/sidebar/components/SidebarMenu.vue
  * @Description: 
 -->
@@ -14,7 +14,7 @@
         :unique-opened="false"
         :collapse-transition="false"
     >
-        <el-menu-item v-for="item in menuList" :key="item.path" :index="item.path" @click="handleClickMenu(item)">
+        <el-menu-item v-for="item in menuList" :key="item.path" :index="item.name" @click="handleClickMenu(item)">
             <el-icon class="collapse-icon">
                 <component :is="item.icon"></component>
             </el-icon>
@@ -33,14 +33,11 @@ defineProps(['isCollapse'])
 const route = useRoute()
 const router = useRouter()
 const activeMenu = computed(() => {
-    console.log(route, 'route')
     const { name, path } = route
-
-    return path
+    return name
 })
 const menuList = computed(() => router.options.routes.filter((item) => !item.hidden))
 const handleClickMenu = (item) => {
-    // history.pushState(item.path)
     router.push(item.path)
 }
 </script>

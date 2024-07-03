@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-06-15 14:31:52
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-07-02 17:51:44
+ * @LastEditTime: 2024-07-03 11:29:46
  * @FilePath: /qiankun-main-config-web/src/router/index.js
  * @Description:
  */
@@ -19,24 +19,25 @@ export const routes = [
             title: '首页',
         },
     },
+
     {
         name: 'parameterCacheApp',
-        hidden: false,
         path: '/pcache-web',
         icon: 'Tickets',
-        title: '数据聚合',
+        title: '路由子应用',
         subTitle: '缓存查询支撑平台',
         component: () => import('@/views/parameterCacheApp/index.vue'),
         meta: {
-            title: '数据聚合',
+            title: '路由子应用',
         },
     },
     {
         name: 'parameterCacheApp',
         hidden: true,
-        path: '/pcache-web/:microAppRoute', //vue3
+        // path: '/pcache-web/:microAppRoute', //vue3
+        path: '/pcache-web/:pathMatch(.*)*', //vue3
         icon: 'Tickets',
-        title: '数据聚合',
+        title: '路由子应用',
         subTitle: '缓存查询支撑平台',
         component: () => import('@/views/parameterCacheApp/index.vue'),
         meta: {},
@@ -75,7 +76,8 @@ export const routes = [
     // {
     //     name: 'childWebApp',
     //     hidden: true, //保证子应用中路由正常跳转
-    //     path: '/child-web/:microAppRoute',
+    //     // path: '/child-web/:microAppRoute',
+    //     path: '/pcache-web/:pathMatch(.*)*', //vue3 + "vue-router": "^4.2.4"
     //     icon: 'SetUp',
     //     title: '子应用',
     //     subTitle: '子应用demo',
@@ -90,10 +92,6 @@ const router = createRouter({
     scrollBehavior: () => ({ left: 0, top: 0 }),
 })
 router.beforeEach(async (to, from, next) => {
-    const title = to.meta.title
-    if (title) {
-        document.title = title
-    }
     next()
 })
 

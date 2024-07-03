@@ -1,8 +1,8 @@
 /*
  * @Author: yangmiaomiao
  * @Date: 2023-12-28 20:30:16
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-07-02 15:44:38
+ * @LastEditors: yangmiaomiao
+ * @LastEditTime: 2024-07-03 16:22:22
  * @Description:
  */
 import vue from '@vitejs/plugin-vue'
@@ -13,16 +13,28 @@ import { defineConfig, loadEnv, ConfigEnv, UserConfig } from 'vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { wrapperEnv } from './src/utils/getEnv'
 import qiankun from 'vite-plugin-qiankun'
+import pkg from './package.json'
+import dayjs from 'dayjs'
+
+const { dependencies, devDependencies, name, version } = pkg
+const __APP_INFO__ = {
+    pkg: { dependencies, devDependencies, name, version },
+    lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+}
+
+// https://vitejs.dev/config/
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     const env = loadEnv(mode, process.cwd())
     const viteEnv = wrapperEnv(env)
     console.log('viteEnv', viteEnv)
 
-    const { VITE_PUBLIC_PATH, VITE_PORT, VITE_OPEN, VITE_QK_NAME } = viteEnv
+    const { VITE_PUBLIC_PATH, VITE_PORT, VITE_OPEN } = viteEnv
+
     return {
         base: VITE_PUBLIC_PATH,
         server: {
             port: VITE_PORT, //端口号
+            origin: 'http://localhost:' + VITE_PORT, //http://localhost:8090
             open: VITE_OPEN, //是否自动在浏览器打开
             host: true,
             hmr: true,
@@ -83,6 +95,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         },
 
         esbuild: {
+            //打包时移除dconsole.log 和 debugger
             pure: viteEnv.VITE_DROP_CONSOLE ? ['console.log', 'debugger'] : [],
         },
         build: {
@@ -115,7 +128,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             },
         },
         define: {
-            __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: false,
+            __APP_INFO__: JSON.stringify(__APP_INFO__),
         },
     }
 })

@@ -1,14 +1,15 @@
 /*
  * @Author: yangmiaomiao
  * @Date: 2024-02-04 14:50:50
- * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-06-20 10:36:05
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2024-07-03 14:47:00
  * @Description:
  */
 import { defineStore } from 'pinia'
 import { AuthState } from '@/stores/interface'
 import { getAuthButtonListApi, getAuthMenuListApi } from '@/api/service/login'
 import { getFlatMenuList, getShowMenuList, getAllBreadcrumbList } from '@/utils'
+import { qiankunWindow } from 'vite-plugin-qiankun/dist/helper'
 
 export const useAuthStore = defineStore({
     id: 'aggregation-auth',
@@ -56,7 +57,8 @@ export const useAuthStore = defineStore({
                 ...item,
                 component: item.path,
                 name: item.uri.slice(1),
-                path: item.uri,
+                path: qiankunWindow.__POWERED_BY_QIANKUN__ ? import.meta.env.VITE_PUBLIC_PATH + item.uri : item.uri, //'/pcache-web' + 动态路由
+                // path: item.uri,
                 meta: {
                     icon: item.icon,
                     title: item.name,

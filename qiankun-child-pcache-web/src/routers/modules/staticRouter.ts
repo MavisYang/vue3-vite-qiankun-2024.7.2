@@ -2,25 +2,25 @@
  * @Author: yangmiaomiao
  * @Date: 2024-02-04 14:44:37
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-07-02 16:40:37
+ * @LastEditTime: 2024-07-03 14:38:42
  * @Description:
  */
 import { RouteRecordRaw } from 'vue-router'
 import { qiankunWindow } from 'vite-plugin-qiankun/dist/helper'
-import { loginUrl } from '@/routers/helper'
+import { HOME_URL } from '@/routers/helper'
 
-const { VITE_PUBLIC_PATH, VITE_HOME_URL } = import.meta.env
+const { VITE_PUBLIC_PATH } = import.meta.env
 
 /**
- * staticRouter (静态路由)
+ * staticRouter (静态路由) 接入qiankun是，需要添加上VITE_PUBLIC_PATH
  */
 export const staticRouter: RouteRecordRaw[] = [
     {
         path: '/',
-        redirect: VITE_HOME_URL,
+        redirect: HOME_URL,
     },
     {
-        path: loginUrl,
+        path: '/login',
         name: 'login',
         component: () => import('@/views/login/index.vue'),
         meta: {
@@ -31,17 +31,16 @@ export const staticRouter: RouteRecordRaw[] = [
         },
     },
     {
-        // path: '/layout',
-        path: qiankunWindow.__POWERED_BY_QIANKUN__ ? VITE_PUBLIC_PATH : '/layout',
+        path: '/layout',
         name: 'layout',
         component: () => import('@/layouts/index.vue'),
-        redirect: VITE_HOME_URL,
+        redirect: HOME_URL,
         children: [],
     },
-]
+].map((item) => ({ ...item, path: qiankunWindow.__POWERED_BY_QIANKUN__ ? VITE_PUBLIC_PATH + item.path : item.path }))
 
 /**
- * errorRouter (错误页面路由)
+ * errorRouter (错误页面路由) 接入qiankun是，需要添加上VITE_PUBLIC_PATH
  */
 export const errorRouter = [
     {
@@ -73,4 +72,4 @@ export const errorRouter = [
         path: '/:pathMatch(.*)*',
         component: () => import('@/components/ErrorMessage/404.vue'),
     },
-]
+].map((item) => ({ ...item, path: qiankunWindow.__POWERED_BY_QIANKUN__ ? VITE_PUBLIC_PATH + item.path : item.path }))

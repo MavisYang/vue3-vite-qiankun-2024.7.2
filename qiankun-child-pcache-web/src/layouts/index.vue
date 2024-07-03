@@ -1,8 +1,8 @@
 <!--
  * @Author: yangmiaomiao
  * @Date: 2024-02-04 15:44:58
- * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-06-20 10:35:52
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2024-07-03 15:40:28
  * @Description: 
 -->
 <template>
@@ -10,8 +10,10 @@
         <el-header>
             <div class="header-lf mask-image">
                 <div class="logo flx-center">
-                    <img class="logo-img" src="@/assets/images/logo_header.png" alt="logo" />
-                    <span class="logo-text">源启基础运行支撑平台</span>
+                    <!-- <img class="logo-img" src="@/assets/images/logo_header.png" alt="logo" /> -->
+                    <!-- <span class="logo-text">源启基础运行支撑平台</span> -->
+
+                    <span class="logo-txt">后台管理系统</span>
                 </div>
             </div>
             <div class="header-ri">

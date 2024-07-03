@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-06-15 16:58:07
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-07-02 11:12:33
+ * @LastEditTime: 2024-07-03 10:56:30
  * @Description:
  */
 import { createApp } from 'vue'
@@ -23,7 +23,7 @@ const initQianKun = () => {
             instance.unmount()
             instance.__instance = null
             instance = null
-            history.go(0) //解决样式冲突问题
+            // history.go(0) //解决样式冲突问题
         },
         update() {},
     })

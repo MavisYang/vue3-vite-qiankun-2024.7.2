@@ -1,12 +1,12 @@
 <!--
  * @Author: yangmiaomiao
  * @Date: 2024-05-29 10:15:58
- * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-05-29 10:18:22
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2024-07-03 15:43:18
  * @Description: 数据补偿记录
 -->
 <template>
-    <div class="content-box">数据补偿记录</div>
+    <div class="content-box"></div>
 </template>
 
 <script setup lang="ts"></script>

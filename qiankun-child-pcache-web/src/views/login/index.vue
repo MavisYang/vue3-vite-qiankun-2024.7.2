@@ -4,7 +4,7 @@
             <div class="loginLeft"></div>
             <div class="loginRight">
                 <div class="loginRight-logo"></div>
-                <div class="loginRight-title">数据聚合管控端</div>
+                <div class="loginRight-title">后台管理系统</div>
 
                 <el-form
                     :model="loginForm"
@@ -60,12 +60,13 @@ import { onMounted, reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/modules/user'
 import { useTabsStore } from '@/stores/modules/tabs'
+import { useAuthStore } from '@/stores/modules/auth'
 import { useKeepAliveStore } from '@/stores/modules/keepAlive'
-
 import { Login } from '@/api/interface'
 import { loginApi, getEncrypt, getUserInfoApi } from '@/api/service/login'
 import { initDynamicRouter } from '@/routers/modules/dynamicRouter'
 import type { ElForm, FormRules } from 'element-plus'
+import { HOME_URL } from '@/routers/helper'
 import I18n from '@/utils/languages/index'
 const { t } = I18n.global
 
@@ -73,7 +74,7 @@ const router = useRouter()
 const userStore = useUserStore()
 const tabsStore = useTabsStore()
 const keepAliveStore = useKeepAliveStore()
-
+const authStore = useAuthStore()
 type FormInstance = InstanceType<typeof ElForm>
 
 const loading = ref(false)
@@ -148,8 +149,14 @@ const login = (formEl: FormInstance | undefined) => {
             //4.添加动态路由
             await initDynamicRouter()
 
+            console.log(HOME_URL, authStore.authMenuListGet, 'authStore.authMenuListGet')
+
             //5.跳转到首页
-            router.push(import.meta.env.VITE_HOME_URL)
+            if (authStore.authMenuListGet.length > 0) {
+                router.push(authStore.authMenuListGet[0].path)
+            } else {
+                router.push(HOME_URL)
+            }
         } finally {
             loading.value = false
         }
@@ -171,8 +178,7 @@ const getUserInfo = async () => {
     box-sizing: border-box;
     position: relative;
     width: 100%;
-    height: 100vh;
-    padding-top: 64px;
+    height: 100%;
     background: #fff url('../../assets/images/login_bg.png') center no-repeat;
     background-size: 100% 100%;
 
@@ -202,8 +208,11 @@ const getUserInfo = async () => {
         background-color: #fff;
 
         .loginRight-logo {
-            background: url('@/assets/images/logo_login.png') center no-repeat;
-            background-size: 100% 100%;
+            width: 100%;
+            height: 82px;
+            margin: 0 auto;
+            // background: url('@/assets/images/logo_login.png') center no-repeat;
+            // background-size: 100% 100%;
         }
 
         .loginRight-title {

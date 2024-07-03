@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-06-15 14:31:43
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-06-15 16:33:07
+ * @LastEditTime: 2024-07-03 11:24:12
  * @FilePath: /qiankun-main-config-web/src/qiankun/index.js
  *
  */
@@ -15,24 +15,29 @@ import router from '@/router/index'
 const microAppLifCycles = {
     beforeLoad: [
         //全局的微应用生命周期钩子，子应用加载前
+
         (app) => {
+            // console.log(app, 'beforeLoad')
             return Promise.resolve()
         },
     ],
     beforeMount: [
         //全局的微应用生命周期钩子，子应用挂载前
         (app) => {
+            // console.log(app, 'beforeMount')
             return Promise.resolve()
         },
     ],
     afterMount: [
         //全局的微应用生命周期钩子，子应用挂载后
         (app) => {
+            // console.log(app, 'afterMount')
             return Promise.resolve()
         },
     ],
     beforeUnmount: [
         (app) => {
+            // console.log(app, 'beforeUnmount')
             return Promise.resolve()
         },
     ],

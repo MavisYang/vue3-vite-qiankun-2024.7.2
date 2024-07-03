@@ -1,3 +1,10 @@
+/*
+ * @Author:
+ * @Date: 2024-07-02 14:43:12
+ * @LastEditors:
+ * @LastEditTime: 2024-07-03 14:35:33
+ * @Description:
+ */
 /* Menu */
 declare namespace Menu {
     interface MenuOptions {
@@ -55,7 +62,6 @@ declare interface ViteEnv {
     VITE_OPEN: boolean
     VITE_HOME_URL: string
     VITE_PRIMARY_COLOR: string
-    VITE_QK_NAME: string
 }
 
 interface ImportMetaEnv extends ViteEnv {

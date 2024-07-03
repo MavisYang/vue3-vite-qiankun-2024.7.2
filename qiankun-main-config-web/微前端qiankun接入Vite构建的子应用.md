@@ -23,7 +23,7 @@ qiankun 官方暂未有文档表明已经支持 Vite，所以直接用普通方�
 (1) 安装 qiankun
 
 ```
-npm install qiankun
+yarn vite-plugin-qiankun
 ```
 
 (2) 新建 src/qiankun/index.js 文件，进行单独的抽离

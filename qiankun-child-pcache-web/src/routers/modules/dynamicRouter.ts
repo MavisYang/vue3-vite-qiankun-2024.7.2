@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-02-19 09:27:21
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-07-02 16:47:40
+ * @LastEditTime: 2024-07-03 14:31:30
  * @Description:
  */
 import router from '@/routers/index'
@@ -10,13 +10,10 @@ import { RouteRecordRaw } from 'vue-router'
 import { ElNotification } from 'element-plus'
 import { useUserStore } from '@/stores/modules/user'
 import { useAuthStore } from '@/stores/modules/auth'
-import { loginUrl } from '@/routers/helper'
-
-console.log(loginUrl)
+import { LOGIN_URL } from '@/routers/helper'
 
 // 引入 views 文件夹下所有 vue 文件
 const modules = import.meta.glob('@/views/**/*.vue')
-const LOGIN_URL = loginUrl
 
 /**
  * @description 初始化动态路由

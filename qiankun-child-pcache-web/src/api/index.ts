@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-05-29 08:47:06
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-07-02 16:46:15
+ * @LastEditTime: 2024-07-03 14:27:49
  * @Description:
  */
 import axios, { AxiosInstance, AxiosError, AxiosRequestConfig, InternalAxiosRequestConfig, AxiosResponse } from 'axios'
@@ -14,14 +14,14 @@ import { AxiosCanceler } from './helper/axiosCancel'
 import { useUserStore } from '@/stores/modules/user'
 import { isURL } from '@/utils/validate'
 import router from '@/routers'
-import { loginUrl } from '@/routers/helper'
+import { LOGIN_URL } from '@/routers/helper'
 
 export interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
     loading?: boolean
     cancel?: boolean
 }
 const VITE_API_URL = import.meta.env.VITE_API_URL
-const LOGIN_URL = loginUrl
+
 const config = {
     // 默认地址请求地址，可在 .env.** 文件中修改
     // baseURL: import.meta.env.VITE_API_URL as string,

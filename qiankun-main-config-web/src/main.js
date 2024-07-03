@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-06-15 14:23:52
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-06-28 08:54:05
+ * @LastEditTime: 2024-07-03 11:28:46
  * @Description:
  */
 import { createApp } from 'vue'
@@ -16,10 +16,14 @@ import 'element-plus/theme-chalk/src/index.scss' //element-plus自定义命名
 import '@/styles/index.scss'
 import start from './qiankun/index'
 
-start({
-    sandbox: true,
-    prefetch: true, //是否开启预加载
-})
+//添加定时器，异步请求，确保微应用加载完成后再执行start方法
+setTimeout(() => {
+    start({
+        sandbox: true,
+        prefetch: true, //是否开启预加载
+    })
+}, 0)
+
 const app = createApp(App)
 
 Object.keys(ElementPlusIcons).forEach((key) => {

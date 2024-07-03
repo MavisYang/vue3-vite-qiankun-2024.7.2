@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-06-15 14:51:12
  * @LastEditors: yangmiaomiao
- * @LastEditTime: 2024-07-02 09:56:40
+ * @LastEditTime: 2024-07-03 10:13:18
  * @FilePath: /qiankun-main-config-web/src/views/Home.vue
 -->
 <template>

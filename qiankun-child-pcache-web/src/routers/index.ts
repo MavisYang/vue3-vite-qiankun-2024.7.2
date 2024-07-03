@@ -22,17 +22,15 @@ import { useAuthStore } from '@/stores/modules/auth'
 import { initDynamicRouter } from '@/routers/modules/dynamicRouter'
 import { staticRouter, errorRouter } from '@/routers/modules/staticRouter'
 import NProgress from '@/utils/nprogress'
-import { loginUrl } from '@/routers/helper'
+import { LOGIN_URL, history } from '@/routers/helper'
 
 const mode = import.meta.env.VITE_ROUTER_MODE
-
-const LOGIN_URL = loginUrl
-const VITE_PUBLIC_PATH = import.meta.env.VITE_PUBLIC_PATH
-
 const routerMode = {
-    hash: () => createWebHashHistory(VITE_PUBLIC_PATH),
-    history: () => createWebHistory(VITE_PUBLIC_PATH),
+    hash: () => createWebHashHistory(history),
+    history: () => createWebHistory(history),
 }
+
+// history: createWebHistory(qiankunWindow.__POWERED_BY_QIANKUN__ ? "/micro-app-vue3” : "/"),
 
 const router = createRouter({
     history: routerMode[mode](),
@@ -40,7 +38,6 @@ const router = createRouter({
     strict: false,
     scrollBehavior: () => ({ left: 0, top: 0 }),
 })
-
 /**
  * @description 路由拦截 beforeEach
  * */
@@ -56,14 +53,10 @@ router.beforeEach(async (to, from, next) => {
     document.title = to.meta.title ? `${to.meta.title} - ${title}` : title
 
     // 3.判断是访问登陆页，有 Token 就在当前页面，没有 Token 重置路由到登陆页
-    console.log('login')
-
-    console.log(LOGIN_URL)
-    console.log(to.path, to.path.toLocaleLowerCase())
 
     if (to.path.toLocaleLowerCase() === LOGIN_URL) {
         if (userStore.token) return next(from.fullPath)
-        // resetRouter()
+        resetRouter()
         return next()
     }
 

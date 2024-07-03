@@ -45,7 +45,7 @@ import { useAuthStore } from '@/stores/modules/auth'
 import { ElMessageBox, ElMessage } from 'element-plus'
 import InfoDialog from './InfoDialog.vue'
 // import PasswordDialog from "./PasswordDialog.vue";
-import { loginUrl } from '@/routers/helper'
+import { LOGIN_URL } from '@/routers/helper'
 
 const userStore = useUserStore()
 const authStore = useAuthStore()
@@ -97,7 +97,7 @@ const logout = () => {
         localStorage.clear()
 
         // 3.重定向到登陆页
-        router.replace(loginUrl)
+        router.replace(LOGIN_URL)
         ElMessage.success('已退出登录')
     })
 }

@@ -2,7 +2,7 @@
  * @Author: yangmiaomiao
  * @Date: 2024-05-27 11:18:35
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-07-02 17:49:15
+ * @LastEditTime: 2024-07-03 11:25:48
  * @Description:
  */
 import { createApp } from 'vue'
@@ -59,7 +59,6 @@ const render = (container?: any) => {
     Object.keys(Icons).forEach((key) => {
         instance.component(key, Icons[key as keyof typeof Icons])
     })
-
     instance.use(ElementPlus).use(directives).use(router).use(I18n).use(pinia)
     instance.mount(container ? container.querySelector('#pcache-app') : '#pcache-app')
 }
