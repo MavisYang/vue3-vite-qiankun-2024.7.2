@@ -14,7 +14,7 @@ qiankun 官方暂未有文档表明已经支持 Vite，所以直接用普通方�
 
 在开发环境下，如果我们使用 vite 来构建 vue3 子应用，基于 vite 的构建机制，会在子应用的 html 的入口文件的 script 标签上携带 type ＝ module。我们知道 qiankun 父应用引入子应用，本质上是将 html 做为入口文件，并通过 import-html-entry 这个库去加载子应用所需要的资源列表 Js、css，然后通过 eval 直接执行，基于 vite 构建的 js 中 import、export 并没有被转码(vite 是基于浏览器支持的 ESM import 特性实现的 bundless，通过利用浏览器进行模块间依赖加载，而不需要在编译时进行。)，导致直接报错(不允许在非 type ＝ module 的 script 里面使用 import)
 
-# 2.生产模式
+## 2.生产模式
 
 产模式下，因为没有诸如 webpack 中支持运行时 publicPath，也就是＿webpack＿public＿path\_\_，换句话说就是 vite 不支持运行时 publicPath，其主要作用是用来解决微应用动态载入的脚本、样式、图片等地址不正确的问题。
 
